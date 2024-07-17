@@ -1,0 +1,34 @@
+name: GitHub Actions Demo
+on: 
+  push: 
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '15 6 * * 0'
+    
+jobs: 
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Output event name
+        run: echo "Event name: ${{github.event_name}}"
+
+      - name: Output current branch name
+        run: echo "Current branch: ${{ github.ref_name }}"
+
+      - name: List all files in the repository
+        run: ls -R
+  
+      
+    
+    
+  
+    
+
+  
